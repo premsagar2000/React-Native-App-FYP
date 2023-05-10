@@ -30,9 +30,8 @@ mongoose.connect("mongodb+srv://hans:hans@cluster0.axxfcfd.mongodb.net/fyp?retry
 //login
 app.use('/login', async (req, res) => {
     const { email, password } = req.body;
-    
     // Check if donor user exists with the given email and password
-    const user = await Users.findOne({ email, password });
+    const user = await Users.find({ email, password });
     // if (user && user.roleId=="1") {
     //   res.status(200).json({ user, redirect:"/admin", role:'admin' });
     //   return;
@@ -41,8 +40,8 @@ app.use('/login', async (req, res) => {
     //   res.status(200).json({ user, redirect:"/ngo", role:'NGO' });
     //   return;
     // }
-    if (user && user.roleId=="3") {
-      res.status(200).json({ user, redirect:"/donor",role:'Donor' });
+    if (user) {
+      res.status(200).json({ user});
       return;
     }
     else if (user && user.roleId=="4") {

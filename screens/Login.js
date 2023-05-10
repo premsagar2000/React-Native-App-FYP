@@ -17,7 +17,7 @@ const Login=(props)=>{
 //For showing email and Password in alert box
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-  
+    const [data,setData] = useState({email,password})
     // const handleLogin = () => {
     //     Alert.alert('Credentials', `Email: ${email} \nPassword: ${password}`);
     //   };
@@ -26,21 +26,26 @@ const Login=(props)=>{
       
       e.preventDefault();
       try {
-        const response = await fetch('exp://10.102.139.42:19000/login', {
+        const response = await fetch('http://localhost:5000/login', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
           },
-          body: JSON.stringify({email, password})
+          body: JSON.stringify({email,password})
         });
         const data = await response.json();
         if (response.ok) {
-          Alert.alert('Welcome');
+            Alert.alert('Welcome');
+            navigation.navigate("Dashboard2")
+            console.log("1")
+
         } else {
-          Alert.alert(data.message);
+            Alert.alert(data.message);
+            console.log("3");
+
         }
       } catch (error) {
-        Alert.alert('Error', error.message);
+            Alert.alert('Error', error.message);
       }
       
     
