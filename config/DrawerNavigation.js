@@ -10,7 +10,7 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 import { NavigationContainer } from "@react-navigation/native";
 import { DrawerItemList, createDrawerNavigator } from "@react-navigation/drawer";
-import User from "../assets/user.jpg";
+import User from "../assets/download.jpg";
 import Profile from "../screens/Profile";
 import ViewNGOs from "../screens/ViewNGOs";
 import Contact from "../screens/Contact";
@@ -20,6 +20,7 @@ import Settings from "../screens/Settings";
 import CreateDonationOffer from "../screens/CreateDonationOffer";
 import Dashboard from "../screens/Dashboard";
 import SignOut from "../screens/SignOut";
+
 
 
 const Drawer = createDrawerNavigator();
@@ -52,11 +53,11 @@ export default function DrawerNavigation() {
                 />
                 <Text
                   style={{fontSize:22, marginVertical:6, fontWeight:'bold', color:"#111"}}
-                >Crystella</Text>
+                >Kashish Kumari</Text>
 
                 <Text
                   style={{fontSize:16, color:"#111"}}
-                >React Native Developer</Text>
+                >Donor Dashboard</Text>
 
                 </View>
                 <DrawerItemList {...props}/>
@@ -128,10 +129,11 @@ export default function DrawerNavigation() {
               <MaterialIcons name="dashboard-customize" size={20} color="#808080"/>
             )
           }}
+          
           component={ShowProjects}
         />
 
-      <Drawer.Screen 
+      {/* <Drawer.Screen 
           name = "Settings"
           options={{
             drawerLabel: "Settings",
@@ -141,9 +143,9 @@ export default function DrawerNavigation() {
             )
           }}
           component={Settings}
-        />
+        /> */}
 
-      <Drawer.Screen 
+      {/* <Drawer.Screen 
           name = "Profile"
           options={{
             drawerLabel: "Profile",
@@ -153,7 +155,7 @@ export default function DrawerNavigation() {
             )
           }}
           component={Profile}
-      />
+      /> */}
 
       <Drawer.Screen 
           name = "Notifications"
@@ -167,7 +169,7 @@ export default function DrawerNavigation() {
           component={Notifications}
       />
       
-      <Drawer.Screen 
+      {/* <Drawer.Screen 
           name = "Contact"
           options={{
             drawerLabel: "Contact",
@@ -177,7 +179,7 @@ export default function DrawerNavigation() {
             )
           }}
           component={Contact}
-      />
+      /> */}
 
     <Drawer.Screen 
           name = "SignOut"
@@ -189,6 +191,7 @@ export default function DrawerNavigation() {
             )
           }}
           component={SignOut}
+          
       />
 
 

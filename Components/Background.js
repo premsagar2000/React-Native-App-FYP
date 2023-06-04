@@ -13,7 +13,7 @@ export const Background=({children})=>{
 export const Background1=({children})=>{
     return (
         <View>
-            <ImageBackground source={require('../assets/2.png')} style={{height: '100%'}}/>
+            <ImageBackground  style={{height: '100%', marginVertical:10}}/>
             <View style={{position:'absolute'}}>
                 {children}
             </View>

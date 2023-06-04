@@ -9,16 +9,17 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 import { NavigationContainer } from "@react-navigation/native";
 import { DrawerItemList, createDrawerNavigator } from "@react-navigation/drawer";
-import User from "../assets/user.jpg";
+import User from "../assets/download.jpg";
 import Dashboard from '../screens/NeedyScreens/Dashboard';
 import ViewDonations from '../screens/NeedyScreens/ViewDonations';
 import Notifications from '../screens/NeedyScreens/Notifications';
 import NeedyProfile from '../screens/NeedyScreens/NeedyProfile';
 import SignOut from '../screens/NeedyScreens/SignOut';
-
+import { MyContext } from './MyContext';
 
 
 const Drawer = createDrawerNavigator();
+const { data } = useContext(MyContext);
 
 export default function DrawerNavigation() {
   return (
@@ -48,11 +49,11 @@ export default function DrawerNavigation() {
                 />
                 <Text
                   style={{fontSize:22, marginVertical:6, fontWeight:'bold', color:"#111"}}
-                >Crystella</Text>
+                >{data}</Text>
 
                 <Text
                   style={{fontSize:16, color:"#111"}}
-                >React Native Developer</Text>
+                >Needy Dashboard</Text>
 
                 </View>
                 <DrawerItemList {...props}/>
@@ -108,7 +109,7 @@ export default function DrawerNavigation() {
       
 
       
-
+{/* 
       <Drawer.Screen 
           name = "Profile"
           options={{
@@ -119,7 +120,7 @@ export default function DrawerNavigation() {
             )
           }}
           component={NeedyProfile}
-      />
+      /> */}
 
       <Drawer.Screen 
           name = "Notifications"
