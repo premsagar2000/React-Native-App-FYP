@@ -3,7 +3,7 @@ const express = require('express')
 const cors = require('cors')
 const mongoose = require('mongoose')
 const Users = require('./Models/Users')
-const router = express.Router();
+// const router = express.Router();
 const app = express()
 
 const bodyParser = require("body-parser");

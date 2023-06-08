@@ -1,22 +1,16 @@
 import "react-native-gesture-handler";
-// import { StatusBar } from 'expo-status-bar';
 import { Text, View, Image, ImageBackground } from 'react-native';
 import {
-  SimpleLineIcons,
   MaterialIcons,
-  MaterialCommunityIcons,
   FontAwesome,
 } from "@expo/vector-icons";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { NavigationContainer } from "@react-navigation/native";
 import { DrawerItemList, createDrawerNavigator } from "@react-navigation/drawer";
 import User from "../assets/download.jpg";
-import Profile from "../screens/Profile";
 import ViewNGOs from "../screens/ViewNGOs";
-import Contact from "../screens/Contact";
 import ShowProjects from "../screens/ShowProjects";
 import Notifications from "../screens/Notifications";
-import Settings from "../screens/Settings";
 import CreateDonationOffer from "../screens/CreateDonationOffer";
 import Dashboard from "../screens/Dashboard";
 import SignOut from "../screens/SignOut";
@@ -40,7 +34,6 @@ export default function DrawerNavigation() {
                   alignItems:"center",
                   borderBottomColor:"#f4f4f4",
                   borderBottomWidth:1,
-                  // backgroundColor:"grey"
                 }}> 
 
                 <Image
@@ -113,7 +106,6 @@ export default function DrawerNavigation() {
             drawerLabel: "View NGOs",
             title: "ViewNGOs",
             drawerIcon: () => (
-              // <MaterialIcons name="category" size={20} color="#808080"/>
               <FontAwesome name="users" size={20} color="#808080"/>
             )
           }}
@@ -132,31 +124,6 @@ export default function DrawerNavigation() {
           
           component={ShowProjects}
         />
-
-      {/* <Drawer.Screen 
-          name = "Settings"
-          options={{
-            drawerLabel: "Settings",
-            title: "Settings",
-            drawerIcon: () => (
-              <SimpleLineIcons name="settings" size={20} color="#808080"/>
-            )
-          }}
-          component={Settings}
-        /> */}
-
-      {/* <Drawer.Screen 
-          name = "Profile"
-          options={{
-            drawerLabel: "Profile",
-            title: "Profile",
-            drawerIcon: () => (
-              <MaterialIcons name="person" size={20} color="#808080"/>
-            )
-          }}
-          component={Profile}
-      /> */}
-
       <Drawer.Screen 
           name = "Notifications"
           options={{
@@ -168,19 +135,6 @@ export default function DrawerNavigation() {
           }}
           component={Notifications}
       />
-      
-      {/* <Drawer.Screen 
-          name = "Contact"
-          options={{
-            drawerLabel: "Contact",
-            title: "Contact",
-            drawerIcon: () => (
-              <MaterialCommunityIcons name="message-alert-outline" size={20} color="#808080"/>
-            )
-          }}
-          component={Contact}
-      /> */}
-
     <Drawer.Screen 
           name = "SignOut"
           options={{
@@ -193,8 +147,6 @@ export default function DrawerNavigation() {
           component={SignOut}
           
       />
-
-
       </Drawer.Navigator>
     </NavigationContainer>
   );

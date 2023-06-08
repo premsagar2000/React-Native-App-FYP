@@ -9,7 +9,7 @@ import Dashboard2 from '../screens/Dashboard2';
 import NeedyDashboard from '../screens/NeedyDashboard';
 import NeedySignUp from '../screens/NeedySignUp';
 import SignUpScreen from '../screens/SignUpScreen';
-import { MyContextProvider } from '../Context';
+// import { MyContextProvider } from '../Context';
 const Stack = createNativeStackNavigator();
 export default function StackNavigation() {
   return (
@@ -17,18 +17,14 @@ export default function StackNavigation() {
       <Stack.Navigator screenOptions={{headerShown: false }}>
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="SignUpScreen" component={SignUpScreen} />
-        <MyContextProvider>
+        {/* <MyContextProvider> */}
         <Stack.Screen name="Login" component={Login} />
-        </MyContextProvider>
+        {/* </MyContextProvider> */}
         <Stack.Screen name="NeedySignUp" component={NeedySignUp} />
         <Stack.Screen name="Signup" component={Signup} />
         <Stack.Screen name="Dashboard2" component={Dashboard2} />
         <Stack.Screen name="NeedyDashboard" component={NeedyDashboard} />
        
-        
-        
-        
-        
       </Stack.Navigator>
     </NavigationContainer>
 

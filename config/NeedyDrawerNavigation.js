@@ -1,9 +1,7 @@
 import "react-native-gesture-handler";
 import { Text, View, Image, ImageBackground } from 'react-native';
 import {
-  SimpleLineIcons,
   MaterialIcons,
-  MaterialCommunityIcons,
   FontAwesome,
 } from "@expo/vector-icons";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -13,13 +11,12 @@ import User from "../assets/download.jpg";
 import Dashboard from '../screens/NeedyScreens/Dashboard';
 import ViewDonations from '../screens/NeedyScreens/ViewDonations';
 import Notifications from '../screens/NeedyScreens/Notifications';
-import NeedyProfile from '../screens/NeedyScreens/NeedyProfile';
 import SignOut from '../screens/NeedyScreens/SignOut';
-import { MyContext } from './MyContext';
+//import { MyContext } from './MyContext';
 
 
 const Drawer = createDrawerNavigator();
-const { data } = useContext(MyContext);
+//const { data } = useContext(MyContext);
 
 export default function DrawerNavigation() {
   return (
@@ -36,7 +33,6 @@ export default function DrawerNavigation() {
                   alignItems:"center",
                   borderBottomColor:"#f4f4f4",
                   borderBottomWidth:1,
-                  // backgroundColor:"grey"
                 }}> 
 
                 <Image
@@ -49,7 +45,7 @@ export default function DrawerNavigation() {
                 />
                 <Text
                   style={{fontSize:22, marginVertical:6, fontWeight:'bold', color:"#111"}}
-                >{data}</Text>
+                >Name</Text>
 
                 <Text
                   style={{fontSize:16, color:"#111"}}
@@ -98,29 +94,10 @@ export default function DrawerNavigation() {
             title: "View Donations",
             drawerIcon: () => (
                <MaterialIcons name="category" size={20} color="#808080"/>
-              // <FontAwesomeIcon icon="fa-solid fa-hands-holding-dollar" />
-            //  <MaterialIcons name="VolunteerActivismIcon" size={20} color="#808080"/>
-              
             )
           }}
           component={ViewDonations}
         />
-
-      
-
-      
-{/* 
-      <Drawer.Screen 
-          name = "Profile"
-          options={{
-            drawerLabel: "Profile",
-            title: "Profile",
-            drawerIcon: () => (
-              <MaterialIcons name="person" size={20} color="#808080"/>
-            )
-          }}
-          component={NeedyProfile}
-      /> */}
 
       <Drawer.Screen 
           name = "Notifications"
