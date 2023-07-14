@@ -1,0 +1,20 @@
+.card-setting {
+    overflow: hidden;
+    text-Overflow: ellipsis;
+    max-Height: 40;
+    line-Height: 1.2;
+  }
+  .fundraising-post-card {
+    text-Align: left;
+  }
+  .card-amounts {
+    flex-Direction: row;
+    justify-Content: space-between;
+    padding: 5px;
+  }
+  .card-amounts .MuiTextField-root {
+    margin-left: 2px;
+  }
+  #modal-modal-goalAmount {
+    display: flex;
+  }

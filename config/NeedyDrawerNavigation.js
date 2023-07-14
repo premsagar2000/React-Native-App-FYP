@@ -1,5 +1,5 @@
 import "react-native-gesture-handler";
-import { Text, View, Image, ImageBackground } from 'react-native';
+import { Text, View, Image, ImageBackground ,TouchableOpacity , StyleSheet} from 'react-native';
 import {
   MaterialIcons,
   FontAwesome,
@@ -11,7 +11,8 @@ import User from "../assets/download.jpg";
 import Dashboard from '../screens/NeedyScreens/Dashboard';
 import ViewDonations from '../screens/NeedyScreens/ViewDonations';
 import Notifications from '../screens/NeedyScreens/Notifications';
-import SignOut from '../screens/NeedyScreens/SignOut';
+import SignOutNeedy from '../screens/NeedyScreens/SignOutNeedy';
+import { useNavigation } from '@react-navigation/native';
 //import { MyContext } from './MyContext';
 
 
@@ -19,6 +20,14 @@ const Drawer = createDrawerNavigator();
 //const { data } = useContext(MyContext);
 
 export default function DrawerNavigation() {
+  const navigation=useNavigation();
+  const handleSignOut = () => {
+    // Perform sign out logic here
+    // For example, clear user session, reset state, etc.
+
+    // Navigate to the login screen
+    navigation.navigate("Login")
+  };
   return (
     <NavigationContainer independent={true}> 
       <Drawer.Navigator
@@ -45,7 +54,7 @@ export default function DrawerNavigation() {
                 />
                 <Text
                   style={{fontSize:22, marginVertical:6, fontWeight:'bold', color:"#111"}}
-                >Name</Text>
+                >Prem</Text>
 
                 <Text
                   style={{fontSize:16, color:"#111"}}
@@ -53,6 +62,12 @@ export default function DrawerNavigation() {
 
                 </View>
                 <DrawerItemList {...props}/>
+                <TouchableOpacity onPress={handleSignOut}>
+                <View style={styles.drawerItem}>
+                <FontAwesome name="sign-out" size={20} color="#808080" />
+                  <Text style={styles.drawerItemText}>Sign Out</Text>
+                  </View>
+        </TouchableOpacity>
               </SafeAreaView>
             )
           }
@@ -111,18 +126,23 @@ export default function DrawerNavigation() {
           component={Notifications}
       />
       
-    <Drawer.Screen 
-          name = "SignOut"
-          options={{
-            drawerLabel: "Sign Out",
-            title: "SignOut",
-            drawerIcon: () => (
-              <FontAwesome name="sign-out" size={20} color="#808080"/>
-            )
-          }}
-          component={SignOut}
-      />
+   
       </Drawer.Navigator>
     </NavigationContainer>
   );
 }
+const styles = StyleSheet.create({
+  drawerItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 10,
+    paddingHorizontal: 16,
+  
+  },
+  drawerItemText: {
+    marginLeft: 16,
+    fontSize: 14,
+    color: '#111',
+    fontWeight:"bold",
+  },
+});

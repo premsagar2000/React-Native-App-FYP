@@ -4,7 +4,7 @@ import {Background1} from '../Components/Background';
 import Field from '../Components/field';
 import { useNavigation } from '@react-navigation/native';
 import axios from 'axios';
-const Signup=(props)=>{
+const DonorSignup=(props)=>{
 
     const navigation = useNavigation();
     const [name,setName]=useState('');
@@ -13,7 +13,7 @@ const Signup=(props)=>{
     const [phone,setPhone]=useState('');
     const [cnic,setCnic]=useState('');
     const [password,setPassword]=useState('');
-    const handleSubmit =  (e) => { 
+    const handleSubmit =async  (e) => { 
         e.preventDefault();
         const data = { 
           name: name, 
@@ -24,7 +24,7 @@ const Signup=(props)=>{
           password: password
         };
         console.log({...data});
-        fetch('http://localhost:5000/donor-signup', { 
+        await fetch('http://10.102.144.212:5000/donor-signup', { 
           method: 'POST', 
           headers: { 
             'Content-Type': 'application/json' 
@@ -48,11 +48,11 @@ const Signup=(props)=>{
 
     return (
        <Background1>
-        <View style={{alignItems:'center', width: 400}}>
+        <View style={{alignItems:'center', width: 380}}>
         
        
-        <View style={{height: 700, width: 460, paddingTop: 200, alignItems: 'center'}}>
-        <Text style={{color:'grey',fontSize: 25, marginBottom: 10, fontWeight:'bold'}}>Create a new account as Needy</Text>
+        <View style={{height: 700, width: 460, paddingTop: 100, alignItems: 'center'}}>
+        <Text style={{color:'grey',fontSize: 25, marginBottom: 10, fontWeight:'bold'}}>Create a new account as Donor</Text>
             <Field placeholder="Full Name" onChangeText={setName}  value={name} />
             <Field placeholder="CNIC-Number" onChangeText={setCnic}  value={cnic}/>
             <Field placeholder="Email Address" onChangeText={setEmail}  value={email}/>
@@ -62,14 +62,14 @@ const Signup=(props)=>{
             
             <View style={{display:'flex',flexDirection:'row', width:'78%', paddingRight: 16}}>
                 <Text style={{color:'grey' , fontSize:16}}>By signing in, you agree to our </Text>
-                <Text style={{color:'dodgerblue' , fontSize:16, fontWeight:'bold'}}>Terms & Conditions </Text>
+                <Text style={{color:'black' , fontSize:16, fontWeight:'bold'}}>Terms & Conditions </Text>
             </View>
             <View style={{display:'flex',flexDirection:'row', width:'78%', paddingRight: 16, justifyContent:'center', marginBottom: 10}}>
                 <Text style={{color:'grey' , fontSize:16}}>and {" "} </Text>
-                <Text style={{color:'dodgerblue' , fontSize:16, fontWeight:'bold'}}>Privacy Policy </Text>
+                <Text style={{color:'black' , fontSize:16, fontWeight:'bold'}}>Privacy Policy </Text>
             </View>
             <TouchableOpacity  
-            style={{borderRadius: 100, color:'white',paddingHorizontal:20, width:'78%', backgroundColor:'dodgerblue', marginVertical: 1, height:'8%'}}
+            style={{borderRadius: 100, color:'white',paddingHorizontal:20, width:'78%', backgroundColor:'gold', marginVertical: 1, height:'8%'}}
             onPress={handleSubmit}
             >
                 <Text style={{color:"white", fontSize: 22, fontWeight: "bold", justifyContent:'center', paddingVertical: 7, textAlign:'center'}}>
@@ -80,7 +80,7 @@ const Signup=(props)=>{
             <View style={{display:'flex', justifyContent:'center', flexDirection:'row'}}>
                  <Text style={{fontSize: 16,fontWeight:'bold', color:'grey'}}>Already have an account ? </Text>
                  <TouchableOpacity onPress={()=>props.navigation.navigate('Login')}>
-                 <Text style={{color: "dodgerblue", fontWeight:'bold', fontSize: 16}}>Login</Text>
+                 <Text style={{color: "black", fontWeight:'bold', fontSize: 16}}>Login</Text>
                  </TouchableOpacity>
 
             </View>
@@ -91,7 +91,7 @@ const Signup=(props)=>{
     )
 }
 
-export default Signup;
+export default DonorSignup;
 
 
 

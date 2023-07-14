@@ -6,11 +6,11 @@ import Btn2 from '../Components/btn2';
 const SignUpScreen=(props)=>{
     return (
         <Background>
-        <View style={{marginHorizontal: 25, marginVertical: 200}}>
+        <View style={{marginHorizontal: 18, marginVertical: 210}}>
         <Btn btnLabel="Needy" bgColor="dodgerblue" textColor="white" Press={()=>
             props.navigation.navigate("NeedySignUp")
         }/>
-        <Btn2 btnLabel="Donor" Press={()=>{props.navigation.navigate("Signup")}}/>
+        <Btn2 btnLabel="Donor" Press={()=>{props.navigation.navigate("DonorSignup")}}/>
         </View>
     </Background>
     )

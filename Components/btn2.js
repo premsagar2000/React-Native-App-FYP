@@ -7,7 +7,7 @@ function Btn2({btnLabel, Press}){
             <TouchableOpacity  
             onPress={Press}
             style={{
-                backgroundColor:"dodgerblue",
+                backgroundColor:"gold",
                 borderRadius: 100,
                 alignItems: 'center',
                 width: 200,

@@ -1,5 +1,5 @@
 import DrawerNavigation from "../config/DrawerNavigation";
-export default function Dashboard2() {
+export default function DonorDashboard() {
   return (
     <DrawerNavigation/>
   );
