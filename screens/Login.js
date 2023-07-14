@@ -42,7 +42,7 @@ const navigation = useNavigation();
             <Field placeholder="Password" secureTextEntry={true} onChangeText={setPassword} value={password}/>
             
             <TouchableOpacity  onPress={handleLogin}
-            style={{borderRadius: 100, color:'white',paddingHorizontal:20, width:'78%', backgroundColor:'dogerblue', marginVertical: 10, height:'8%'}}
+            style={{borderRadius: 100, color:'white',paddingHorizontal:20, width:'78%', backgroundColor:'gold', marginVertical: 10, height:'8%'}}
             >
                 <Text style={{color:"white", fontSize: 22, fontWeight: "bold", justifyContent:'center', paddingVertical: 5, textAlign:'center'}}>
                 Login
