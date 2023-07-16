@@ -4,26 +4,25 @@ import {Background2} from '../Components/Background';
 import { useNavigation } from '@react-navigation/native';
 import Field from '../Components/field';
 import axios from 'axios';
-// import { AuthContext } from '../context/AuthContext';
+import { useLogin } from '../LoginProvider';
 
 const Login=(props)=>{
 
 
-// const {setCredentials} = useContext(AuthContext)
 //Updated Code
 const navigation = useNavigation();
-   
 
 //For showing email and Password in alert box
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const {setCredentials} = useLogin()
     const handleLogin=async ()=>{
-       await axios.post('http://10.102.144.212:5000/login',{email, password})
+       await axios.post('http://10.102.136.134:5000/login',{email, password})
         .then(response=>{
-            // setCredentials({user:response.data.user})
             console.log("Hello");
             navigation.navigate(response.data.redirect);
-            response.data.user
+            setCredentials({user:response.data.user})
+            // response.data.user
         })
         .catch(error=>{
             console.log(error)

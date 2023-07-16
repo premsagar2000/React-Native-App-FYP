@@ -31,7 +31,7 @@ const donor_styles = StyleSheet.create({
   donor_card: {
     flex: 1,
     borderRadius: 15,
-    backgroundColor: 'dodgerblue',
+    backgroundColor: 'gold',
     shadowColor: '#000',
     shadowOffset: {
       width: 0,

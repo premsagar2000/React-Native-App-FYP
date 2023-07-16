@@ -3,42 +3,43 @@ import React, { useEffect, useState } from 'react';
 import { View, Text, TouchableOpacity , FlatList} from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import axios from 'axios';
-import { useLogin } from '../../LoginProvider';
+export default function ViewNGO() {
+  const [ngos, setNgos] = useState([]);
 
-export default function ViewDonations() {
-  const [dataNeedy, setDataNeedy] = useState([]);
-  const {credentials} = useLogin()
-  useEffect(() => {
-   axios.post('http://10.102.136.134:5000/needy-updated-donations-history',{email:credentials.user.email})
-      .then(response => {
-        setDataNeedy(response.data);
-      })
-      .catch(error => {
-        console.error(error);
-      });
-  }, []);
-
+  useEffect(()=>{
+  
+    fetch(`http://10.102.136.134:5000/ngos`,{
+        method:"GET"
+    })
+    .then(response => response.json())
+    .then(data => {
+      
+      setNgos(data)
+      
+    })
+    .catch(error => console.error(error));
+  })
   return (
     <ScrollView>
       <View style={styles.container}>
         <View style={styles.tableHeader}>
-          <Text style={styles.headerText}>Donor Name</Text>
-          <Text style={styles.headerText}>Donor Email</Text>
-          <Text style={styles.headerText}>Donation Type</Text>
-          <Text style={styles.headerText}>Quantity/Amount</Text>
-          <Text style={styles.headerText}>Donation Date</Text>
+          <Text style={styles.headerText}>NGO name</Text>
+          <Text style={styles.headerText}>Email Address</Text>
+          <Text style={styles.headerText}>CNIC</Text>
+          <Text style={styles.headerText}>Contact No</Text>
+          <Text style={styles.headerText}>Address</Text>
         </View>
         <FlatList
-        data={dataNeedy}
+        data={ngos}
         keyExtractor={item => item._id}
         renderItem={({ item }) => (
           <View style={styles.tableRow}>
-            <Text style={styles.rowText}>{item.donor_name}</Text>
-            <Text style={styles.rowText}>{item.donor_email}</Text>
-            <Text style={styles.rowText}>{item.donation_type}</Text>
+            <Text style={styles.rowText}>{item.name}</Text>
+            <Text style={styles.rowText}>{item.email}</Text>
+            <Text style={styles.rowText}>{item.email}</Text>
             
-            <Text style={styles.rowText}>{item.donation_quantity}</Text>
-            <Text style={styles.rowText}>{item.donation_date}</Text>
+            <Text style={styles.rowText}>{item.phone}</Text>
+            <Text style={styles.rowText}>{item.address}</Text>
           </View>
     )}
     />

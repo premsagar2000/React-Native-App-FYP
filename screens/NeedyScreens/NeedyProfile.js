@@ -1,7 +1,8 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
-
-const ProfilePage = () => {
+import { useLogin } from '../../LoginProvider';
+const ProfileDonor = () => {
+  const { credentials } = useLogin()
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -10,22 +11,26 @@ const ProfilePage = () => {
           source={{ uri: "https://picsum.photos/200/300" }}
         />
         <View style={styles.headerInfo}>
-          <Text style={styles.name}>John Doe</Text>
-          <Text style={styles.bio}>Software Engineer</Text>
+          <Text style={styles.name}>{credentials?.user ? credentials?.user?.name : "Name"}</Text>
+          <Text style={styles.bio}>Needy</Text>
         </View>
       </View>
       <View style={styles.details}>
         <View style={styles.detailRow}>
           <Text style={styles.detailTitle}>Email:</Text>
-          <Text style={styles.detailValue}>johndoe@example.com</Text>
+          <Text style={styles.detailValue}>{credentials?.user ? credentials?.user?.email : "email"}</Text>
         </View>
         <View style={styles.detailRow}>
           <Text style={styles.detailTitle}>Phone:</Text>
-          <Text style={styles.detailValue}>(123) 456-7890</Text>
+          <Text style={styles.detailValue}>{credentials?.user ? credentials?.user?.phone : 'phone'}</Text>
+        </View>
+        <View style={styles.detailRow}>
+          <Text style={styles.detailTitle}>CNIC:</Text>
+          <Text style={styles.detailValue}>{credentials?.user ? credentials?.user?.cnic:'1234566'}</Text>
         </View>
         <View style={styles.detailRow}>
           <Text style={styles.detailTitle}>Location:</Text>
-          <Text style={styles.detailValue}>New York, NY</Text>
+          <Text style={styles.detailValue}>{credentials?.user ? credentials?.user?.address : 'address'}</Text>
         </View>
       </View>
     </View>
@@ -80,4 +85,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ProfilePage;
+export default ProfileDonor;

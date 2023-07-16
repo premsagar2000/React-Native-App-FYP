@@ -10,18 +10,20 @@ import { NavigationContainer } from "@react-navigation/native";
 import { DrawerItemList, createDrawerNavigator } from "@react-navigation/drawer";
 import User from "../assets/download.jpg";
 import ViewNeedy from "../screens/DonorScreen/ViewNeedy";
-import ShowProjects from "../screens/DonorScreen/ShowProjects";
-import Notifications from "../screens/DonorScreen/Notifications";
+import ProfileDonor from "../screens/DonorScreen/ProfileDonor";
 import CreateDonationOffer from "../screens/DonorScreen/CreateDonationOffer";
 import Dashboard from "../screens/DonorScreen/Dashboard";
 import SignOut from "../screens/DonorScreen/SignOut";
 import { useNavigation } from '@react-navigation/native';
+import ViewNGO from "../screens/DonorScreen/ViewNGO";
+import { useLogin } from "../LoginProvider";
 // import { AuthContext } from "../context/AuthContext";
 
 const Drawer = createDrawerNavigator();
 
 export default function DrawerNavigation() {
   // const {credentials} = useContext(AuthContext)
+  const {credentials} = useLogin();
   const navigation=useNavigation();
   const handleSignOut = () => {
     // Perform sign out logic here
@@ -56,7 +58,7 @@ export default function DrawerNavigation() {
                 />
                 <Text
                   style={{fontSize:22, marginVertical:6, fontWeight:'bold', color:"#111"}}
-                >Kashish</Text>
+                >{credentials?.user?.name}</Text>
 
                 <Text
                   style={{fontSize:16, color:"#111"}}
@@ -80,13 +82,13 @@ export default function DrawerNavigation() {
             width:250
           },
           headerStyle:{
-            backgroundColor:"dodgerblue",
+            backgroundColor:"black",
           },
           headerTintColor:"#fff",
           headerTitleStyle:{
             fontWeight:"bold"
           },
-          drawerActiveTintColor:"blue",
+          drawerActiveTintColor:"gold",
           drawerLabelStyle:{
             color:"#111"
           }
@@ -129,27 +131,27 @@ export default function DrawerNavigation() {
         />
 
       <Drawer.Screen 
-          name = "ShowProjects"
+          name = "View NGOs"
           options={{
-            drawerLabel: "Show Active Projects",
-            title: "ShowProjects",
+            drawerLabel: "View NGOs",
+            title: "View NGOs",
             drawerIcon: () => (
               <MaterialIcons name="dashboard-customize" size={20} color="#808080"/>
             )
           }}
           
-          component={ShowProjects}
+          component={ViewNGO}
         />
       <Drawer.Screen 
-          name = "Notifications"
+          name = "Profile"
           options={{
-            drawerLabel: "Notifications",
-            title: "Notification",
+            drawerLabel: "Profile",
+            title: "Donor Profile",
             drawerIcon: () => (
               <FontAwesome name="bell" size={20} color="#808080"/>
             )
           }}
-          component={Notifications}
+          component={ProfileDonor}
       />
     
       </Drawer.Navigator>

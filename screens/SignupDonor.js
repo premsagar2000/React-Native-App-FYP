@@ -24,7 +24,7 @@ const DonorSignup=(props)=>{
           password: password
         };
         console.log({...data});
-        await fetch('http://10.102.144.212:5000/donor-signup', { 
+        await fetch('http://10.102.136.134:5000/donor-signup', { 
           method: 'POST', 
           headers: { 
             'Content-Type': 'application/json' 
@@ -47,7 +47,7 @@ const DonorSignup=(props)=>{
 
 
     return (
-       <Background1>
+    
         <View style={{alignItems:'center', width: 380}}>
         
        
@@ -87,7 +87,6 @@ const DonorSignup=(props)=>{
         </View>
         </View>
 
-   </Background1>
     )
 }
 

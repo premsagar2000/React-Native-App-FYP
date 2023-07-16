@@ -10,12 +10,9 @@ import NeedyDashboard from '../screens/NeedyDashboard';
 import NeedySignUp from '../screens/NeedySignUp';
 import SignUpScreen from '../screens/SignUpScreen';
 
-// import { AuthProvider } from '../context/AuthContext';
-// import { MyContextProvider } from '../Context';
 const Stack = createNativeStackNavigator();
 export default function StackNavigation() {
   return (
-    
     <NavigationContainer>
    
       <Stack.Navigator screenOptions={{ headerShown: false }}>
@@ -25,8 +22,11 @@ export default function StackNavigation() {
         <Stack.Screen name="Login" component={Login} />
      
         <Stack.Screen name="NeedySignUp" component={NeedySignUp} />
+        
         <Stack.Screen name="DonorSignup" component={DonorSignup} />
+        
         <Stack.Screen name="DonorDashboard" component={DonorDashboard} />
+       
         <Stack.Screen name="NeedyDashboard" component={NeedyDashboard} />
       </Stack.Navigator>
    

@@ -10,9 +10,11 @@ import { DrawerItemList, createDrawerNavigator } from "@react-navigation/drawer"
 import User from "../assets/download.jpg";
 import Dashboard from '../screens/NeedyScreens/Dashboard';
 import ViewDonations from '../screens/NeedyScreens/ViewDonations';
-import Notifications from '../screens/NeedyScreens/Notifications';
+import NeedyDonationOffers from '../screens/NeedyScreens/NeedyDonationOffers';
 import SignOutNeedy from '../screens/NeedyScreens/SignOutNeedy';
 import { useNavigation } from '@react-navigation/native';
+import ProfilePage from "../screens/NeedyScreens/NeedyProfile";
+import { useLogin } from "../LoginProvider";
 //import { MyContext } from './MyContext';
 
 
@@ -21,6 +23,7 @@ const Drawer = createDrawerNavigator();
 
 export default function DrawerNavigation() {
   const navigation=useNavigation();
+  const {credentials}=useLogin();
   const handleSignOut = () => {
     // Perform sign out logic here
     // For example, clear user session, reset state, etc.
@@ -54,7 +57,7 @@ export default function DrawerNavigation() {
                 />
                 <Text
                   style={{fontSize:22, marginVertical:6, fontWeight:'bold', color:"#111"}}
-                >Prem</Text>
+                >{credentials.user.name}</Text>
 
                 <Text
                   style={{fontSize:16, color:"#111"}}
@@ -78,13 +81,13 @@ export default function DrawerNavigation() {
             width:250
           },
           headerStyle:{
-            backgroundColor:"dodgerblue",
+            backgroundColor:"black",
           },
           headerTintColor:"#fff",
           headerTitleStyle:{
             fontWeight:"bold"
           },
-          drawerActiveTintColor:"blue",
+          drawerActiveTintColor:"gold",
           drawerLabelStyle:{
             color:"#111"
           }
@@ -114,16 +117,27 @@ export default function DrawerNavigation() {
           component={ViewDonations}
         />
 
-      <Drawer.Screen 
-          name = "Notifications"
+<Drawer.Screen 
+          name = "Donation Offers"
           options={{
-            drawerLabel: "Notifications",
-            title: "Notification",
+            drawerLabel: "Donation Offers",
+            title: "Donation Offers",
             drawerIcon: () => (
-              <FontAwesome name="bell" size={20} color="#808080"/>
+               <MaterialIcons name="category" size={20} color="#808080"/>
             )
           }}
-          component={Notifications}
+          component={NeedyDonationOffers}
+        />      
+       <Drawer.Screen 
+          name = "Profile"
+          options={{
+            drawerLabel: "Profile",
+            title: "Profile",
+            drawerIcon: () => (
+              <MaterialIcons name="contacts" size={24} color="black" />
+            )
+          }}
+          component={ProfilePage}
       />
       
    
