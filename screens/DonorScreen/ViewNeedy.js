@@ -7,7 +7,7 @@ export default function ViewNeedy() {
   const [dataNeedy, setDataNeedy] = useState([]);
 
   useEffect(() => {
-    axios.get('http://10.102.136.134:5000/needy')
+    axios.get('http://10.102.144.107:5000/needy')
       .then(response => {
         setDataNeedy(response.data);
       })

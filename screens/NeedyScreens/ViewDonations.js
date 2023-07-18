@@ -9,7 +9,7 @@ export default function ViewDonations() {
   const [dataNeedy, setDataNeedy] = useState([]);
   const {credentials} = useLogin()
   useEffect(() => {
-   axios.post('http://10.102.136.134:5000/needy-updated-donations-history',{email:credentials.user.email})
+   axios.post('http://10.102.144.107:5000/needy-updated-donations-history',{email:credentials.user.email})
       .then(response => {
         setDataNeedy(response.data);
       })

@@ -3,6 +3,8 @@ import { Text, View, Image, ImageBackground ,TouchableOpacity , StyleSheet} from
 import {
   MaterialIcons,
   FontAwesome,
+  AntDesign,
+  MaterialCommunityIcons,
 } from "@expo/vector-icons";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { NavigationContainer } from "@react-navigation/native";
@@ -67,8 +69,10 @@ export default function DrawerNavigation() {
                 <DrawerItemList {...props}/>
                 <TouchableOpacity onPress={handleSignOut}>
                 <View style={styles.drawerItem}>
-                <FontAwesome name="sign-out" size={20} color="#808080" />
-                  <Text style={styles.drawerItemText}>Sign Out</Text>
+                  <View>
+                <FontAwesome name="sign-out" size={20} color="#808080" /></View>
+                <View style={styles.text}>
+                  <Text style={styles.drawerItemText}>Sign Out</Text></View>
                   </View>
         </TouchableOpacity>
               </SafeAreaView>
@@ -104,7 +108,17 @@ export default function DrawerNavigation() {
           }}
           component={Dashboard}
         />
-
+<Drawer.Screen 
+          name = "Donation Offers"
+          options={{
+            drawerLabel: "Donation Offers",
+            title: "Donation Offers",
+            drawerIcon: () => (
+              <MaterialCommunityIcons name="offer" size={20} color="#808080" />
+            )
+          }}
+          component={NeedyDonationOffers}
+        />  
       <Drawer.Screen 
           name = "ViewDonations"
           options={{
@@ -117,24 +131,14 @@ export default function DrawerNavigation() {
           component={ViewDonations}
         />
 
-<Drawer.Screen 
-          name = "Donation Offers"
-          options={{
-            drawerLabel: "Donation Offers",
-            title: "Donation Offers",
-            drawerIcon: () => (
-               <MaterialIcons name="category" size={20} color="#808080"/>
-            )
-          }}
-          component={NeedyDonationOffers}
-        />      
+    
        <Drawer.Screen 
           name = "Profile"
           options={{
             drawerLabel: "Profile",
             title: "Profile",
             drawerIcon: () => (
-              <MaterialIcons name="contacts" size={24} color="black" />
+              <AntDesign name="user" size={20} color="#808080" />
             )
           }}
           component={ProfilePage}
@@ -150,13 +154,20 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingVertical: 10,
-    paddingHorizontal: 16,
+    paddingHorizontal: 20,
+    backgroundColor: '#FFF',
   
   },
   drawerItemText: {
-    marginLeft: 16,
-    fontSize: 14,
-    color: '#111',
-    fontWeight:"bold",
+    fontSize: 13,
+    fontWeight: '600',
+    color: 'black',
+
+  },
+  text:{
+    
+    textAlign:'center',
+    paddingLeft: 30
+
   },
 });

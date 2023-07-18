@@ -88,7 +88,7 @@ const CreateDonationOffer= () => {
       };
       // Make API request here
       try {
-        const response = await fetch('http://10.102.136.134:5000/create-donation', {
+        const response = await fetch('http://10.102.144.107:5000/create-donation', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -120,7 +120,7 @@ const CreateDonationOffer= () => {
       };
       // Make API request here
       try {
-        const response = await fetch('http://10.102.136.134:5000/create-donation', {
+        const response = await fetch('http://10.102.144.107:5000/create-donation', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -153,7 +153,7 @@ const CreateDonationOffer= () => {
       };
       // Make API request here
       try {
-        const response = await fetch('http://10.102.136.134:5000/create-donation', {
+        const response = await fetch('http://10.102.144.107:5000/create-donation', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -184,7 +184,7 @@ const CreateDonationOffer= () => {
       };
       // Make API request here
       try {
-        const response = await fetch('http://10.102.136.134:5000/create-donation', {
+        const response = await fetch('http://10.102.144.107:5000/create-donation', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -215,7 +215,7 @@ const CreateDonationOffer= () => {
       };
       // Make API request here
       try {
-        const response = await fetch('http://10.102.136.134:5000/create-donation', {
+        const response = await fetch('http://10.102.144.107:5000/create-donation', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -245,7 +245,7 @@ const CreateDonationOffer= () => {
       };
       // Make API request here
       try {
-        const response = await fetch('http://10.102.136.134:5000/create-donation', {
+        const response = await fetch('http://10.102.144.107:5000/create-donation', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -279,8 +279,10 @@ const CreateDonationOffer= () => {
             selectedValue={donationRecipient}
             onValueChange={handleDonationRecipientChange}
             style={styles.picker}
+          
+            
           >
-            <Picker.Item label="Select recipient" value="" />
+            <Picker.Item label="Select recipient" value=""  />
             <Picker.Item label="NGO" value="NGO" />
             <Picker.Item label="Needy Person" value="Needy-Person" />
           </Picker>
@@ -408,19 +410,22 @@ const CreateDonationOffer= () => {
 };
 const styles = StyleSheet.create({
   container:{
-      flex: 1,
-      alignItems: "center",
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#fff',
+    padding: 20,
      
   },
   donorCreateDonation: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
     padding: 40,
+    borderWidth: 2,
+    borderColor: 'black',
+    borderRadius: 10,
   },
-  donorCreateDonationImage: {
-    marginTop: 50,
-  },
+  
   formContainer: {
     width: '120%',
     maxWidth: '120%',
@@ -435,8 +440,9 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   heading: {
-    marginTop: 0,
-    textAlign: 'center',
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 20,
   },
   formGroup: {
     marginBottom: 15,
@@ -446,27 +452,26 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   input: {
-    padding: 5,
-    borderRadius: 5,
+    width: '100%',
+    height: 30,
+    borderColor: '#ccc',
     borderWidth: 1,
-    borderColor: 'gray',
-    shadowColor: '#000',
-    shadowOpacity: 0.2,
-    shadowOffset: { width: 0, height: 0 },
-    shadowRadius: 5,
-    elevation: 2,
+    borderRadius: 10,
+    paddingHorizontal: 10,
+    marginBottom: 10,
   },
   button: {
-    width: '100%',
-    padding: 10,
+    backgroundColor: 'gold',
     borderRadius: 5,
-    backgroundColor: '#ffbb38',
-    alignItems: 'center',
-    marginTop: 10,
+    paddingVertical: 10,
+    paddingHorizontal: 30,
+    marginTop: 20,
   },
   buttonText: {
-    color: 'white',
+    color: '#fff',
+    fontSize: 18,
     fontWeight: 'bold',
+    textAlign:'center'
   },
 });
 

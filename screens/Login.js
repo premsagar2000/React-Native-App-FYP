@@ -17,7 +17,7 @@ const navigation = useNavigation();
     const [password, setPassword] = useState('');
     const {setCredentials} = useLogin()
     const handleLogin=async ()=>{
-       await axios.post('http://10.102.136.134:5000/login',{email, password})
+       await axios.post('http://10.102.144.107:5000/login',{email, password})
         .then(response=>{
             console.log("Hello");
             navigation.navigate(response.data.redirect);
@@ -32,7 +32,7 @@ const navigation = useNavigation();
     };
     return (
        <Background2>
-        <View style={{alignItems:'center', width: 380}}>
+        <View style={{alignItems:'center', width: 365}}>
 
         <View style={{height: 700, width: 460, paddingTop: 280, alignItems: 'center'}}>
             <Text style={{fontSize: 40, color: 'gold', fontWeight:'bold'}}>Welcome Back</Text>
@@ -41,9 +41,9 @@ const navigation = useNavigation();
             <Field placeholder="Password" secureTextEntry={true} onChangeText={setPassword} value={password}/>
             
             <TouchableOpacity  onPress={handleLogin}
-            style={{borderRadius: 100, color:'white',paddingHorizontal:20, width:'78%', backgroundColor:'gold', marginVertical: 10, height:'8%'}}
+            style={{borderRadius: 100, color:'white',paddingHorizontal:20, width:'78%', backgroundColor:'gold', marginVertical: 15, height:'8%'}}
             >
-                <Text style={{color:"white", fontSize: 22, fontWeight: "bold", justifyContent:'center', paddingVertical: 5, textAlign:'center'}}>
+                <Text style={{color:"white", fontSize: 22, fontWeight: "bold", justifyContent:'center', paddingVertical: 3, textAlign:'center'}}>
                 Login
                 </Text>
 

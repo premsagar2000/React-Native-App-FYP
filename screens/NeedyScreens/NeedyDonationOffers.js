@@ -206,7 +206,7 @@ export default function NeedyDonationOffers() {
   const [rows, setRows] = useState([]);
   const {credentials} = useLogin()
   useEffect(() => {
-          fetch('http://10.102.136.134:5000/needy-donations', {
+          fetch('http://10.102.144.107:5000/needy-donations', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -225,7 +225,7 @@ export default function NeedyDonationOffers() {
                 console.log("id: ", row._id);
                 
                   try {
-                    const response = await fetch('http://10.102.136.134:5000/donations-update', {
+                    const response = await fetch('http://10.102.144.107:5000/donations-update', {
                       method: 'PATCH',
                       headers: {
                         'Content-Type': 'application/json'
@@ -239,7 +239,7 @@ export default function NeedyDonationOffers() {
                       setRows(newRows);
                       console.log('user side', data);
                 
-                      fetch('http://10.102.136.134:5000/donation-history', {
+                      fetch('http://10.102.144.107:5000/donation-history', {
                         method: 'POST',
                         headers: {
                           'Content-Type': 'application/json'
@@ -253,7 +253,7 @@ export default function NeedyDonationOffers() {
                       console.log('Donation not updated');
                     }
                 
-                    fetch('http://10.102.136.134:5000/needy-donations', {
+                    fetch('http://10.102.144.107:5000/needy-donations', {
                       method: 'POST',
                       headers: {
                         'Content-Type': 'application/json'
@@ -268,7 +268,7 @@ export default function NeedyDonationOffers() {
                       })
                       .catch(error => console.error(error));
                 
-                    fetch('http://10.102.136.134:5000/needy-donations', {
+                    fetch('http://10.102.144.107:5000/needy-donations', {
                       method: 'POST',
                       headers: {
                         'Content-Type': 'application/json'
@@ -290,7 +290,7 @@ export default function NeedyDonationOffers() {
   const handleReject = async (row) => {
                 console.log(row._id);
                 try {
-                  const response = await fetch(`http://10.102.136.134:5000/donations/${row._id}`, {
+                  const response = await fetch(`http://10.102.144.107:5000/donations/${row._id}`, {
                     method: 'DELETE',
                     headers: {
                       'Content-Type': 'application/json'
@@ -305,7 +305,7 @@ export default function NeedyDonationOffers() {
                     console.log('Failed to delete donation record');
                   }
               
-                  fetch('http://10.102.136.134:5000/needy-donations', {
+                  fetch('http://10.102.144.107:5000/needy-donations', {
                     method: 'POST',
                     headers: {
                       'Content-Type': 'application/json'

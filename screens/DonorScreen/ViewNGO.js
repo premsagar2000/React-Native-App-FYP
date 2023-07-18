@@ -8,7 +8,7 @@ export default function ViewNGO() {
 
   useEffect(()=>{
   
-    fetch(`http://10.102.136.134:5000/ngos`,{
+    fetch(`http://10.102.144.107:5000/ngos`,{
         method:"GET"
     })
     .then(response => response.json())

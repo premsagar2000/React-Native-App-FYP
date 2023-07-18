@@ -4,6 +4,7 @@ import { Text, View, Image, ImageBackground,TouchableOpacity , StyleSheet} from 
 import {
   MaterialIcons,
   FontAwesome,
+  AntDesign
 } from "@expo/vector-icons";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { NavigationContainer } from "@react-navigation/native";
@@ -68,8 +69,10 @@ export default function DrawerNavigation() {
                 <DrawerItemList {...props}/>
         <TouchableOpacity onPress={handleSignOut}>
                 <View style={styles.drawerItem}>
-                <FontAwesome name="sign-out" size={20} color="#808080" />
-                  <Text style={styles.drawerItemText}>Sign Out</Text>
+                  <View style={styles.icon}>
+                <FontAwesome name="sign-out" size={20} color="#808080" /></View>
+                <View style={styles.text}>
+                  <Text style={styles.drawerItemText}>Sign Out</Text></View>
                   </View>
         </TouchableOpacity>
               </SafeAreaView>
@@ -136,7 +139,7 @@ export default function DrawerNavigation() {
             drawerLabel: "View NGOs",
             title: "View NGOs",
             drawerIcon: () => (
-              <MaterialIcons name="dashboard-customize" size={20} color="#808080"/>
+              <AntDesign name="profile" size={20} color="#808080" />
             )
           }}
           
@@ -148,11 +151,12 @@ export default function DrawerNavigation() {
             drawerLabel: "Profile",
             title: "Donor Profile",
             drawerIcon: () => (
-              <FontAwesome name="bell" size={20} color="#808080"/>
+              <AntDesign name="user" size={20} color="#808080" />
             )
           }}
           component={ProfileDonor}
       />
+    
     
       </Drawer.Navigator>
     </NavigationContainer>
@@ -163,13 +167,22 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingVertical: 10,
-    paddingHorizontal: 16,
-  
+    paddingHorizontal: 20,
+    backgroundColor: '#FFF',
+    
   },
   drawerItemText: {
-    marginLeft: 16,
-    fontSize: 14,
-    color: '#111',
-    fontWeight:"bold",
+    fontSize: 13,
+    fontWeight: '600',
+    color: '#333',
+  },
+  text:{
+    
+    textAlign:'center',
+    paddingLeft: 30
+
+  },
+  icon: {
+   
   },
 });
